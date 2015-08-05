@@ -1,14 +1,8 @@
 /*
 Pl2 Semester Project.
 Course Teacher: MOHAMMAD SAMAWAT ULLAH
-Team Members:
-
 Name: Shadman Sakib
 ID: 15-28368-1
-
-Name: Kazi Ahmedul Huque
-ID: 15-28875-1
-
 Acknowledgement: I've written all the codes by myself but I've got help from the Internet to clear my concepts.
 Also I'd like to give credit to: http://www.cplusplus.com/ and http://www.tutorialspoint.com/
 This project has been uploaded to gitHub.*/
@@ -128,14 +122,25 @@ class Device{
     void optdevice(){
     ndevice = 1;
     x = dname;
-    dname[0]={"Default Number"};
+    dname[0]={""};
     cout <<"Enter how many device you have"<<endl;
     cin >> ndevice ;
     if (ndevice == 1) {
-        cout << "You have only one device" <<endl;
+         cout << "Please enter the number you want to register: " << endl;
+    for (int j=0;j<1;j++) {
+
+            cin >> *(x+j);
+
+        }
+        cout << "Your devices are:"<<endl;
+        for (int i=0;i<ndevice;i++) {
+
+            cout << (1+i) <<". " << *(x+i) <<endl;
+
+        }
     } else {
-    cout << "Please enter the names/numbers if you have more than one default device/number" << endl;
-    for (int j=1;j<ndevice;j++) {
+    cout << "Please enter the numbers you own if you have more than one number" << endl;
+    for (int j=0;j<ndevice;j++) {
 
             cin >> *(x+j);
 
@@ -212,7 +217,7 @@ class PhoneRecord {
     //for account credit
     double cost_record=10.0; // variable for credit
     void setCost_record (double cost) {
-        cost_record = cost;
+        cost_record = cost_record+cost;
     }
     double getCost_record() {
         return cost_record;
@@ -314,7 +319,7 @@ int main()
                      cout << "Please enter the amount you want to recharge: ";
                      cin >> input_cost;
                      Phone.setCost_record(input_cost);
-                     cout <<  Phone.getCost_record() <<" taka has been credited to your account." <<endl;
+                     cout <<  Phone.getCost_record() <<" taka is available now in your account." <<endl;
                      cin.ignore();
                      cout << "Press 5 to return to the main menu."<<endl;
                      cin >> menu;
@@ -427,6 +432,7 @@ int main()
 			cout << "Phone Number: " << Contact.phoneNumber[i] << endl;
                 }
                 Phone.call();
+                cin.ignore();
         }
         } else if (menu==5){
             system("cls");
